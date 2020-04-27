@@ -1,0 +1,37 @@
+# encoding: utf-8
+print("PRACTICA NUMERO 1: INSERCION Y BUSQUEDA")
+
+array=[]
+dimension=int(input("Ingrese el numero de elementos del arreglo: "))
+
+#INGRESO DE ELEMENTOS
+while True:
+    if dimension !=0:
+            num=int(input("Ingrese el nuevo valor: "))
+            array.append(num)
+            dimension=dimension-1
+    else:
+        break
+print(array)
+
+
+#BUSQUEDA DE ELEMENTOS
+inicio=0
+longitud= len(array)
+encontrado=False
+buscado=int(input("Ingrese el elemento que desee buscar: "))
+
+while not encontrado and inicio <= longitud:
+    mitad = int((inicio+longitud) / 2)
+    if buscado == array[mitad]:
+        encontrado=True
+    elif buscado < array[mitad]:
+        longitud = mitad - 1
+    else:
+        inicio = mitad + 1
+
+if encontrado:
+    print("El dato se encuentra en la posicion ", str(mitad+1))
+    print(array)
+else:
+            print("El dato no se encontro")
